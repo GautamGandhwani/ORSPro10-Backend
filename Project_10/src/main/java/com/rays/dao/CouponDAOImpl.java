@@ -43,5 +43,4 @@ public class CouponDAOImpl extends BaseDAOImpl<CouponDTO> implements CouponDAOIn
 	public Class<CouponDTO> getDTOClass() {
 		return CouponDTO.class;
 	}
-
 }

@@ -90,7 +90,5 @@ public class CouponDTO extends BaseDTO{
 		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
 		map.put("offerCode", offerCode);
 		return map;
-	}
-	
-	
+	}	
 }

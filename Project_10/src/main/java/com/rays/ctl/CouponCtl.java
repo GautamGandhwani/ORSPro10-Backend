@@ -26,5 +26,4 @@ public class CouponCtl extends BaseCtl<CouponForm, CouponDTO, CouponServiceInt>{
 		res.addResult("couponlist", map);
 		return res;
 	}
-
 }
