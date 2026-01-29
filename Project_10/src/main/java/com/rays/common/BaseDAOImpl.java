@@ -306,41 +306,20 @@ public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
 	 */
 	protected List<Order> getOrderByClause(T dto, CriteriaBuilder builder, Root<T> qRoot) {
 
-	    System.out.println("BaseDAO getOrderByClause start");
-
-	    List<Order> orderBys = new ArrayList<>();
-
-	    // ✅ dto null check
-	    if (dto == null) {
-	        System.out.println("DTO is null, applying default order");
-	        orderBys.add(builder.desc(qRoot.get("id")));
-	        return orderBys;
-	    }
-
-	    LinkedHashMap<String, String> map = dto.orderBY();
-
-	    // ✅ map null / empty check
-	    if (map == null || map.isEmpty()) {
-	        System.out.println("OrderBy map is null or empty, default order applied");
-	        orderBys.add(builder.desc(qRoot.get("id")));
-	        return orderBys;
-	    }
-
-	    System.out.println("map = " + map);
-
-	    map.forEach((key, value) -> {
-
-	        // ✅ value null-safe comparison
-	        if ("asc".equalsIgnoreCase(value)) {
-	            System.out.println("ASC order on " + key);
-	            orderBys.add(builder.asc(qRoot.get(key)));
-	        } else {
-	            System.out.println("DESC order on " + key);
-	            orderBys.add(builder.desc(qRoot.get(key)));
-	        }
-	    });
-
-	    return orderBys;
+		// Apply Order by clause
+		System.out.println("baseDAO in getOrderByClause.......Gautam");
+		LinkedHashMap<String, String> map = dto.orderBY();
+		List<Order> orderBys = new ArrayList<Order>();
+		System.out.println("map=" + map);
+		map.forEach((key, value) -> {
+			if (value.equals("asc")) {
+				System.out.println("in if value equals asc");
+				orderBys.add(builder.asc(qRoot.get(key)));
+			} else {
+				orderBys.add(builder.desc(qRoot.get(key)));
+			}
+		});
+		return orderBys;
 	}
 
 }

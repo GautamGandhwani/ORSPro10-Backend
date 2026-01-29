@@ -8,16 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rays.common.BaseCtl;
 import com.rays.common.ORSResponse;
-import com.rays.dto.CompensationDTO;
-import com.rays.form.CompensationForm;
-import com.rays.service.CompensationServiceInt;
+import com.rays.dto.CouponDTO;
+import com.rays.form.CouponForm;
+import com.rays.service.CouponServiceInt;
 
 @RestController
-@RequestMapping(value = "Compensation")
-public class CompensationCtl extends BaseCtl<CompensationForm, CompensationDTO, CompensationServiceInt> {
+@RequestMapping(value = "Coupon")
+public class CouponCtl extends BaseCtl<CouponForm, CouponDTO, CouponServiceInt>{
 
-	
-	
 	@GetMapping("/preload")
 	public ORSResponse preload() {
 		ORSResponse res = new ORSResponse(true);
@@ -25,7 +23,8 @@ public class CompensationCtl extends BaseCtl<CompensationForm, CompensationDTO, 
 		map.put(1, "Active");
 		map.put(2, "Inactive");
 
-		res.addResult("compensationlist", map);
+		res.addResult("couponlist", map);
 		return res;
 	}
+
 }

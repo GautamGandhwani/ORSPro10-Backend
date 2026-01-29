@@ -24,7 +24,7 @@ public class CompensationDTO extends BaseDTO {
 
 	@Column(name = "STATE")
 	private String state;
-
+	
 	public String getStaffMember() {
 		return staffMember;
 	}
@@ -59,38 +59,36 @@ public class CompensationDTO extends BaseDTO {
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return "StaffMember";
+		return "staffMember";
 	}
 
 	@Override
 	public String getUniqueKey() {
-		// TODO Auto-generated method stub
-		return null;
+		return "staffMember";
 	}
 
 	@Override
 	public String getUniqueValue() {
-		// TODO Auto-generated method stub
-		return null;
+		return "staffMember";
 	}
 
 	@Override
 	public String getLabel() {
-		// TODO Auto-generated method stub
 		return "Compensation";
 	}
 
 	@Override
 	public LinkedHashMap<String, String> orderBY() {
-		// TODO Auto-generated method stub
-		return null;
+		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+		map.put("staffMember", "asc");
+		return map;
 	}
 
 	@Override
 	public LinkedHashMap<String, Object> uniqueKeys() {
-		// TODO Auto-generated method stub
-		return null;
+		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
+		map.put("staffMember", staffMember);
+		return map;
 	}
 
 }

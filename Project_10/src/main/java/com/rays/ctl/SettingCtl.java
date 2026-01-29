@@ -8,16 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rays.common.BaseCtl;
 import com.rays.common.ORSResponse;
-import com.rays.dto.CompensationDTO;
-import com.rays.form.CompensationForm;
-import com.rays.service.CompensationServiceInt;
+import com.rays.dto.SettingDTO;
+import com.rays.form.SettingForm;
+import com.rays.service.SettingServiceInt;
 
 @RestController
-@RequestMapping(value = "Compensation")
-public class CompensationCtl extends BaseCtl<CompensationForm, CompensationDTO, CompensationServiceInt> {
+@RequestMapping(value = "Setting")
+public class SettingCtl extends BaseCtl<SettingForm, SettingDTO, SettingServiceInt>{
 
-	
-	
 	@GetMapping("/preload")
 	public ORSResponse preload() {
 		ORSResponse res = new ORSResponse(true);
@@ -25,7 +23,7 @@ public class CompensationCtl extends BaseCtl<CompensationForm, CompensationDTO, 
 		map.put(1, "Active");
 		map.put(2, "Inactive");
 
-		res.addResult("compensationlist", map);
+		res.addResult("settinglist", map);
 		return res;
 	}
 }
