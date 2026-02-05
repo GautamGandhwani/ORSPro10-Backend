@@ -20,10 +20,6 @@ public class CouponCtl extends BaseCtl<CouponForm, CouponDTO, CouponServiceInt>{
 	public ORSResponse preload() {
 		ORSResponse res = new ORSResponse(true);
 		HashMap<Integer, String> map = new HashMap<Integer, String>();
-		map.put(1, "Active");
-		map.put(2, "Inactive");
-
-		res.addResult("couponlist", map);
 		return res;
 	}
 }

@@ -60,10 +60,12 @@ public class CouponForm extends BaseForm{
 	public BaseDTO getDto() {
 
 		CouponDTO dto = initDTO(new CouponDTO());
+
 		dto.setOfferCode(offerCode);
 		dto.setDiscountAmount(discountAmount);
 		dto.setExpiryDate(expiryDate);
 		dto.setOfferStatus(offerStatus);
+		
 		return dto;
 	}
 }

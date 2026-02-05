@@ -11,4 +11,5 @@ import com.rays.dto.CouponDTO;
 @Transactional
 public class CouponServiseImpl extends BaseServiceImpl<CouponDTO, CouponDAOInt> implements CouponServiceInt {
 
+	
 }

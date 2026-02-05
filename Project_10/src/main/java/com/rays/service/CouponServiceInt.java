@@ -5,4 +5,5 @@ import com.rays.dto.CouponDTO;
 
 public interface CouponServiceInt  extends BaseServiceInt<CouponDTO>{
 
+	
 }

@@ -18,16 +18,11 @@ public class CouponDAOImpl extends BaseDAOImpl<CouponDTO> implements CouponDAOIn
 	@Override
 	protected List<Predicate> getWhereClause(CouponDTO dto, CriteriaBuilder builder, Root<CouponDTO> qRoot) {
 
-		// Create where conditions
 		List<Predicate> whereCondition = new ArrayList<Predicate>();
 
 		if (!isEmptyString(dto.getOfferCode())) {
 			whereCondition.add(builder.like(qRoot.get("offerCode"), dto.getOfferCode() + "%"));
 		}
-
-//		if (!isZeroNumber(dto.getDiscountAmount())) {
-//			whereCondition.add(builder.equal(qRoot.get("discountAmount"), dto.getDiscountAmount()));
-//		}
 
 		if (isNotNull(dto.getExpiryDate())) {
 			whereCondition.add(builder.equal(qRoot.get("expiryDate"), dto.getExpiryDate()));

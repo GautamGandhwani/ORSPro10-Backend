@@ -70,7 +70,7 @@ public class CouponDTO extends BaseDTO{
 
 	@Override
 	public String getUniqueValue() {
-		return "offerCode";
+		return offerCode;
 	}
 
 	@Override
