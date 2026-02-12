@@ -1,4 +1,4 @@
-		package com.rays.service;
+package com.rays.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +17,8 @@ import com.rays.dto.RoleDTO;
  * If unchecked exception is propagated from a method then transaction is rolled
  * back.
  * 
- * Default propagation value is Propagation.REQUIRED and readOnly = false
- * Gautam Gandhwani 
+ * Default propagation value is Propagation.REQUIRED and readOnly = false Gautam
+ * Gandhwani
  */
 @Service
 @Transactional
