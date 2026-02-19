@@ -23,6 +23,10 @@ public class SupplierDAOImpl extends BaseDAOImpl< SupplierDTO> implements Suppli
 			whereCondition.add(builder.like(qRoot.get("name"), dto.getName() + "%"));
 		}
 		
+		if (!isEmptyString(dto.getCategory())) {
+			whereCondition.add(builder.like(qRoot.get("category"), dto.getCategory() + "%"));
+		}
+		
 		if (isNotNull(dto.getDob())) {
 			whereCondition.add(builder.equal(qRoot.get("dob"), dto.getDob()));
 		}
