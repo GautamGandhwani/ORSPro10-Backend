@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rays.common.BaseCtl;
 import com.rays.common.ORSResponse;
-import com.rays.dto.PromotionDTO;
-import com.rays.form.PromotionForm;
-import com.rays.service.PromotionServiceInt;
+import com.rays.dto.PlacementDTO;
+import com.rays.form.PlacementForm;
+import com.rays.service.PlacementServiceInt;
 
 @RestController
-@RequestMapping(value = "Promotion")
-public class PromotionCtl extends BaseCtl<PromotionForm, PromotionDTO, PromotionServiceInt>{
+@RequestMapping(value = "Placement")
+public class PlacementCtl extends BaseCtl<PlacementForm, PlacementDTO, PlacementServiceInt>{
 
 	@GetMapping("/preload")
 	public ORSResponse preload() {
@@ -23,7 +23,7 @@ public class PromotionCtl extends BaseCtl<PromotionForm, PromotionDTO, Promotion
 		map.put(1, "Activ");
 		map.put(2, "Inactive");
 
-		res.addResult("Promotiionlist", map);
+		res.addResult("placementlist", map);
 		return res;
 	}
 }

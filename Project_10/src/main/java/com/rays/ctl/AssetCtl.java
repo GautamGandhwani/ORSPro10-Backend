@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rays.common.BaseCtl;
 import com.rays.common.ORSResponse;
-import com.rays.dto.PromotionDTO;
-import com.rays.form.PromotionForm;
-import com.rays.service.PromotionServiceInt;
+import com.rays.dto.AssetDTO;
+import com.rays.form.AssetForm;
+import com.rays.service.AssetServiceInt;
 
 @RestController
-@RequestMapping(value = "Promotion")
-public class PromotionCtl extends BaseCtl<PromotionForm, PromotionDTO, PromotionServiceInt>{
+@RequestMapping(value = "Asset")
+public class AssetCtl extends BaseCtl<AssetForm, AssetDTO, AssetServiceInt>{
 
 	@GetMapping("/preload")
 	public ORSResponse preload() {
@@ -23,7 +23,7 @@ public class PromotionCtl extends BaseCtl<PromotionForm, PromotionDTO, Promotion
 		map.put(1, "Activ");
 		map.put(2, "Inactive");
 
-		res.addResult("Promotiionlist", map);
+		res.addResult("assetlist", map);
 		return res;
 	}
 }
