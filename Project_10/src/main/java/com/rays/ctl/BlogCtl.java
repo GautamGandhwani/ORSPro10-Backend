@@ -8,22 +8,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rays.common.BaseCtl;
 import com.rays.common.ORSResponse;
-import com.rays.dto.CompensationDTO;
-import com.rays.form.CompensationForm;
-import com.rays.service.CompensationServiceInt;
+import com.rays.dto.BlogDTO;
+import com.rays.form.BlogForm;
+import com.rays.service.BlogServiceInt;
 
 @RestController
-@RequestMapping(value = "Compensation")
-public class CompensationCtl extends BaseCtl<CompensationForm, CompensationDTO, CompensationServiceInt> {
+@RequestMapping(value = "Blog")
+public class BlogCtl extends BaseCtl<BlogForm, BlogDTO, BlogServiceInt>{
 
 	@GetMapping("/preload")
 	public ORSResponse preload() {
 		ORSResponse res = new ORSResponse(true);
 		HashMap<Integer, String> map = new HashMap<Integer, String>();
-		map.put(1, "Active");
-		map.put(2, "Inactive");
+		map.put(1, "Published");
+		map.put(2, "Draft");
+		map.put(3, "Pending");
 
-		res.addResult("compensationlist", map);
+		res.addResult("bloglist", map);
 		return res;
 	}
 }
