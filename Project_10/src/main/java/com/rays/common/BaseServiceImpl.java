@@ -11,15 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.rays.exception.DatabaseException;
 import com.rays.exception.DuplicateRecordException;
 
-
-
 /**
- * Gautam Gandhwani 
+ * Gautam Gandhwani
  *
  * @param <T>
  * @param <D>
  */
-public abstract class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>> implements BaseServiceInt<T>  {
+public abstract class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>> implements BaseServiceInt<T> {
 
 	private static Logger log = LoggerFactory.getLogger(BaseServiceImpl.class);
 
@@ -32,7 +30,7 @@ public abstract class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>
 		// T dto baseDao.findByPK(Class<T>, pk)
 		return dto;
 	}
-	
+
 	@Transactional(readOnly = true)
 	public T findByUniqueKey(String att, String val, UserContext userContext) {
 		T dto = baseDao.findByUniqueKey(att, val, userContext);
@@ -44,19 +42,18 @@ public abstract class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>
 		System.out.println("Search run in Baseservice......Gautam");
 		return baseDao.search(dto, pageNo, pageSize, userContext);
 	}
-	
+
 	/*
 	 * public List<T> searchMany(T dto, int pageNo, int pageSize, UserContext
 	 * userContext) { System.out.println("searchMany run in Baseservice"); return
 	 * baseDao.searchMany(dto, pageNo, pageSize, userContext); }
 	 */
-	
 
 	@Transactional(readOnly = true)
 	public List<T> search(T dto, UserContext userContext) {
 		System.out.println("baseservice Search run.....Gautam");
-		return baseDao.search(dto, userContext);  
-		
+		return baseDao.search(dto, userContext);
+
 	}
 
 	@Transactional(readOnly = false)
@@ -64,13 +61,14 @@ public abstract class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>
 		// check duplicate
 		System.out.println("add() run in BaseSecrvice......Gautam");
 		long pk = baseDao.add(dto, userContext);
+
 		return pk;
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(T dto, UserContext userContext) throws DuplicateRecordException {
 		baseDao.update(dto, userContext);
-	}	
+	}
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public long save(T dto, UserContext userContext) throws DuplicateRecordException {
