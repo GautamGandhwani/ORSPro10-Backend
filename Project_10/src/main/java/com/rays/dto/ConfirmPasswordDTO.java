@@ -1,6 +1,5 @@
 package com.rays.dto;
 
-import java.util.Date;
 import java.util.LinkedHashMap;
 
 import javax.persistence.Column;
@@ -10,27 +9,27 @@ import javax.persistence.Table;
 import com.rays.common.BaseDTO;
 
 @Entity
-@Table(name = "ST_USERSESSION")
-public class UserSessionDTO extends BaseDTO{
+@Table(name = "ST_CONFIRMPASSWORD")
+public class ConfirmPasswordDTO extends BaseDTO{
 
-	@Column(name = "SESSION_CODE", length = 50)
-	private String sessionCode	;
+	@Column(name = "CONFIRM_CODE", length = 50)
+	private String confirmCode;
 	
 	@Column(name = "USER_NAME", length = 50)
 	private String userName;
 	
-	@Column(name = "LOGIN_TIME")
-	private Date loginTime;
+	@Column(name = "CONFIRM_VALUE", length = 50)
+	private String confirmValue;
 	
 	@Column(name = "STATUS", length = 50)
 	private String status;
 
-	public String getSessionCode() {
-		return sessionCode;
+	public String getConfirmCode() {
+		return confirmCode;
 	}
 
-	public void setSessionCode(String sessionCode) {
-		this.sessionCode = sessionCode;
+	public void setConfirmCode(String confirmCode) {
+		this.confirmCode = confirmCode;
 	}
 
 	public String getUserName() {
@@ -41,12 +40,12 @@ public class UserSessionDTO extends BaseDTO{
 		this.userName = userName;
 	}
 
-	public Date getLoginTime() {
-		return loginTime;
+	public String getConfirmValue() {
+		return confirmValue;
 	}
 
-	public void setLoginTime(Date loginTime) {
-		this.loginTime = loginTime;
+	public void setConfirmValue(String confirmValue) {
+		this.confirmValue = confirmValue;
 	}
 
 	public String getStatus() {
@@ -59,35 +58,35 @@ public class UserSessionDTO extends BaseDTO{
 
 	@Override
 	public String getValue() {
-		return userName;
+		return confirmCode;
 	}
 
 	@Override
 	public String getUniqueKey() {
-		return "sessionCode";
+		return "confirmCode";
 	}
 
 	@Override
 	public String getUniqueValue() {
-		return sessionCode;
+		return confirmCode;
 	}
 
 	@Override
 	public String getLabel() {
-		return "User Session";
+		return "Confirm Password";
 	}
 
 	@Override
 	public LinkedHashMap<String, String> orderBY() {
 		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
-		map.put("sessionCode", "asc");
+		map.put("confirmCode", "asc");
 		return map;
 	}
 
 	@Override
 	public LinkedHashMap<String, Object> uniqueKeys() {
 		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
-		map.put("sessionCode", sessionCode);
+		map.put("confirmCode", confirmCode);
 		return map;
 	}
 }
